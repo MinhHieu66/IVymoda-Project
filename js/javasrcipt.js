@@ -38,3 +38,84 @@ function slider(index) {
 }
 
 setInterval(imgSlide, 3000);
+
+// Show Sidebar Category
+const itemsliderbar = document.querySelectorAll(".category-left-li");
+
+itemsliderbar.forEach(function (menu, index) {
+  menu.addEventListener("click", function () {
+    menu.classList.toggle("block");
+  });
+});
+
+//Product
+const bigImg = document.querySelector(".product-content-left-big-img img");
+const smallImgs = document.querySelectorAll(
+  ".product-content-left-small-img img"
+);
+smallImgs.forEach(function (imgItem, x) {
+  imgItem.addEventListener("click", function () {
+    bigImg.src = imgItem.src;
+  });
+});
+
+const info = document.querySelector(".info");
+const detail = document.querySelector(".detail");
+const preserve = document.querySelector(".preserve");
+
+if (info) {
+  info.addEventListener("click", function () {
+    document.querySelector(
+      ".product-content-right-bottom-content-info"
+    ).style.display = "block";
+
+    document.querySelector(
+      ".product-content-right-bottom-content-detail"
+    ).style.display = "none";
+
+    document.querySelector(
+      ".product-content-right-bottom-content-preserve"
+    ).style.display = "none";
+  });
+}
+
+if (detail) {
+  detail.addEventListener("click", function () {
+    document.querySelector(
+      ".product-content-right-bottom-content-info"
+    ).style.display = "none";
+
+    document.querySelector(
+      ".product-content-right-bottom-content-detail"
+    ).style.display = "block";
+
+    document.querySelector(
+      ".product-content-right-bottom-content-preserve"
+    ).style.display = "none";
+  });
+}
+
+if (preserve) {
+  preserve.addEventListener("click", function () {
+    document.querySelector(
+      ".product-content-right-bottom-content-info"
+    ).style.display = "none";
+
+    document.querySelector(
+      ".product-content-right-bottom-content-detail"
+    ).style.display = "none";
+
+    document.querySelector(
+      ".product-content-right-bottom-content-preserve"
+    ).style.display = "block";
+  });
+}
+
+const butTon = document.querySelector(".product-content-right-bottom-top");
+if (butTon) {
+  butTon.addEventListener("click", function () {
+    document
+      .querySelector(".product-content-right-bottom-content-big")
+      .classList.toggle("activeB");
+  });
+}
